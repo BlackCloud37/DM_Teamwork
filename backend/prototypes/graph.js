@@ -7,13 +7,16 @@ function Graph(twoDArray) {
         this.ConnectivityBranchN = 0;
         this.matrix = matrix;
 
+        this.betweenness = 0;
+        this.closeness = 0;
+
         this.nexts = new Array(this.VetN+1);
         for(let i = 1;i<=this.VetN;i++){
             let row = this.matrix.data[i];
             this.nexts[i] = new Array();
             for (let j = 1; j<=this.VetN;j++){
                 if (row[j]!==0 && row[j] !== 10000){
-                    this.nexts[i].push(j);
+                    this.nexts[i].push(parseInt(j));
                 }
             }
         }

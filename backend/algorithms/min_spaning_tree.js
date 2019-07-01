@@ -13,28 +13,27 @@ let twoDArray = [
     [0, 0, 0, 4, 2, 0, 5],
     [0, 0, 0, 0, 3, 5, 0]
 ];let graph = new Graph(twoDArray);
-
+//Node
 function Node(id, pre, dis){
     this.id = id;
     this.pre = pre;
     this.dis = dis;
 }
-
+//Elem for Priority Queue
 function QueueElement(element, priority) {
     this.element = element;
     this.priority = element.dis;
 }
-
-function initArray(arr, size, value) {for (let i = 0; i <= size; i++) arr[i] = value;}
 function cmp(a,b){return a<=b };
-
+function initArray(arr, size, value) {for (let i = 0; i <= size; i++) arr[i] = value;}
+//Prim
 function minSpanTree(graph, firstPoint) {
     let VetN = graph.VetN;
     let weightSum = 0;
     let fakeroot = -1;
     let ifAdded = new Array(VetN+1);initArray(ifAdded, VetN, false);
     let priorityQueue = new PriorityQueue(QueueElement, cmp);
-    let outputArray = new Array();
+    let outputArray = [];
 
     priorityQueue.push(new Node(firstPoint,fakeroot,0));
 
@@ -63,6 +62,6 @@ function minSpanTree(graph, firstPoint) {
     return [outputArray, weightSum];
 
 }
-
+//Test
 let ret = minSpanTree(graph,6);
 console.log(ret);
