@@ -30,7 +30,7 @@ ZZX &amp; YC, 2019-Spring DM homework
 - **边：**评论过相同电影则有边
 - **权重：** $W(i,j)$
 
-> $$W(i,j) = 1+round(9 \times \frac{d(i,j)-min}{max-min})\\(min = 1.271,\quad max = 32.77,\quad round()为取整函数) \\d(i,j) = \left \| \vec{v_i}-\vec{v_j} \right \| \\ \vec{v_i} = (x^*_{i1},x^*_{i2}, \dots,x^*_{iM})_{1\times M}\quad\quad\ \{m = 1,2,\dots,M(totalMovie)\}$$
+> $$W(i,j) = round ( d(i,j))\\(round()为取整函数) \\d(i,j) = \left \| \vec{v_i}-\vec{v_j} \right \| \\ \vec{v_i} = (x^*_{i1},x^*_{i2}, \dots,x^*_{iM})_{1\times M}\quad\quad\ \{m = 1,2,\dots,M(totalMovie)\}$$
 
 
 
@@ -40,15 +40,14 @@ ZZX &amp; YC, 2019-Spring DM homework
 
 - 采用**用户-电影评分**向量，计算两个用户$U_i,U_j$间特征向量的欧氏距离，用户越**相似**则距离越**近**
 
-  - 由于用户打分有偏好(倾向高分或低分)，故对用户打分进行$z-score$标准化，以反映用户打分对应的喜爱程度，$z-score$标准化公式如下：
+  - 由于用户打分有偏好(倾向高分或低分)，一个常打三分的用户给出的四分与常打五分的用户给出的四分“价值”是不等的，故对用户打分进行$z-score$标准化，以反映用户打分对应的喜爱程度，$z-score$标准化公式如下：
 
   > $x^*_{im} = \frac {x_{im}-\bar x_{i}}{\delta _i}$
   >
   > $x^*_{im}:修正后分数\qquad x_{im}:修正前分数\qquad \bar x_{i}:用户平均给分\qquad \delta_i:用户给分的标准差$
 
-  - 计算得到标准化后用户评分的欧氏距离$d(i,j) \in[1.271,\ 32.77]$，按如下公式换算至$[1,\ 10]$整数边权
+  - 计算得到标准化后，用户评分的欧氏距离$d(i,j) \in[1.271,\ 32.77]$，取整后得到整数边权
 
-  > $W(i,j) = 1+round(9 \times \frac{d(i,j)-min}{max-min})$
 
 ## 二.编程过程及进度 (待补充)
 
