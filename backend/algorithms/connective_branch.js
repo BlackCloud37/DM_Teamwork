@@ -48,5 +48,4 @@ function connectiveBranch(graph) {
     return branchList;
 }
 
-let ret = connectiveBranch(graph);
-console.log(ret);
+module.exports = connectiveBranch;

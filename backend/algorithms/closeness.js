@@ -25,4 +25,4 @@ function closeness(graph, nodeId) {
     return (graph.VetN-1)/totalDistance;
 }
 
-console.log(closeness(graph,));
+module.exports = closeness;

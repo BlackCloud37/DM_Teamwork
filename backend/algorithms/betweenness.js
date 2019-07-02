@@ -58,6 +58,6 @@ function betweenness(graph) {
         }
     }
 
-    return betweennessArr.slice(1);
+    return betweennessArr;
 }
-console.log(betweenness(graph));
+module.exports = betweenness;

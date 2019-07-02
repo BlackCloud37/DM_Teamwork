@@ -62,6 +62,5 @@ function minSpanTree(graph, firstPoint) {
     return [outputArray, weightSum];
 
 }
-//Test
-let ret = minSpanTree(graph,6);
-console.log(ret);
+
+module.exports = minSpanTree;
